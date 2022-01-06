@@ -1,0 +1,31 @@
+.link {
+  display: block;
+
+  position: relative;
+}
+
+.link.muted {
+  color: var(--off-grey-darker);
+}
+
+.link:hover {
+  color: black;
+}
+
+.link:after {
+  content: "";
+
+  width: 0px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  border-bottom: 1px solid black;
+
+  transition: all 250ms;
+}
+
+.link:hover:after {
+  width: 100%;
+}
