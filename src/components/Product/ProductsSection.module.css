@@ -21,3 +21,7 @@
 .section.uppercase h1 {
   text-transform: uppercase;
 }
+
+.actionSection {
+  padding: 2rem;
+}

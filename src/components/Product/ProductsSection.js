@@ -22,7 +22,9 @@ const ProductsSection = (props) => {
         ))}
       </div>
 
-      {props.action && <p>Action Stuff</p>}
+      {props.action && (
+        <div className={classes.actionSection}>{props.action}</div>
+      )}
     </div>
   );
 };
