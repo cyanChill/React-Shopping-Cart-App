@@ -1,0 +1,11 @@
+.card {
+  width: var(--card-dim);
+  height: var(--card-dim);
+
+  border-radius: 0.5rem;
+  background-color: var(--card-bkg);
+}
+
+.card:hover {
+  background-color: var(--card-active-bkg);
+}

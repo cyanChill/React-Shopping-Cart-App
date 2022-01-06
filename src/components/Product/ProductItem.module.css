@@ -1,0 +1,31 @@
+.product {
+  width: var(--card-dim);
+
+  margin: 0.75rem;
+
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  padding: 1rem;
+}
+
+.description h3 {
+  width: 100%;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  text-transform: capitalize;
+}
+
+.description p {
+  font-size: 1.15rem;
+  color: var(--off-grey-darker);
+}

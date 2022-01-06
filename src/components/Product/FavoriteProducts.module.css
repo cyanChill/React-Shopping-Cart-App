@@ -1,0 +1,19 @@
+.favorites {
+  padding: 2rem 1rem;
+
+  text-align: center;
+}
+
+.favorites h1 {
+  padding: 3rem;
+
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.products {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
