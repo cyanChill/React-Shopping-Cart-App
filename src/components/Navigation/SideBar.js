@@ -38,10 +38,10 @@ const Sidebar = (props) => {
           <div className={classes["primary-links"]}>
             {/* Main Links */}
             <NavbarLink to="/" label="HOME" />
-            <NavbarLink to="/" label="ALL PRODUCTS" />
-            <NavbarLink to="/" label="CLOTHING" />
-            <NavbarLink to="/" label="GEAR" />
-            <NavbarLink to="/" label="GIFT CARDS" />
+            <NavbarLink to="/collections/all" label="ALL PRODUCTS" />
+            <NavbarLink to="/collections/clothing" label="CLOTHING" />
+            <NavbarLink to="/collections/gear" label="GEAR" />
+            <NavbarLink to="/collection/gift-cards" label="GIFT CARDS" />
           </div>
 
           <div className={classes["secondary-links"]}>
