@@ -29,3 +29,14 @@
   font-size: 1.15rem;
   color: var(--off-grey-darker);
 }
+
+@media (max-width: 500px) {
+  .product {
+    width: 87.5vw;
+  }
+
+  .product-card {
+    width: 87.5vw;
+    height: 87.5vw;
+  }
+}

@@ -7,7 +7,7 @@ import classes from "./ProductItem.module.css";
 const ProductItem = (props) => {
   return (
     <div className={classes.product}>
-      <Card>
+      <Card className={classes["product-card"]}>
         <Link to={`./products/${props.id}`}>
           <img src={props.image} alt={props.name} />
         </Link>
