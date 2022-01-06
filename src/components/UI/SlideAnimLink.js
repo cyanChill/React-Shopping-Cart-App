@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import classes from "./NavbarLink.module.css";
+import classes from "./SlideAnimLink.module.css";
 
-const NavbarLink = (props) => {
+const SlideAnimLink = (props) => {
   const linkClasses = `${classes.link} ${props.className} ${
     props.muted && classes.muted
   }`;
@@ -14,4 +14,4 @@ const NavbarLink = (props) => {
   );
 };
 
-export default NavbarLink;
+export default SlideAnimLink;
