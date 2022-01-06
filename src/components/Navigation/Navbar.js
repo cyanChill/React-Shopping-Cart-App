@@ -19,6 +19,11 @@ const Navbar = () => {
   const showSideBar = () => setShow(true);
   const hideSideBar = () => setShow(false);
 
+  /*
+    Need check to see if we scrolled on the page; if we have, need to give
+    the navebar a "active class" (ie: make the background not transparent)
+  */
+
   return (
     <>
       <Sidebar show={show} onClick={hideSideBar} />
