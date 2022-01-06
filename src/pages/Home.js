@@ -1,4 +1,5 @@
 import ImageSlider from "../components/ImageGallary/ImageSlider";
+import AllProducts from "../components/Product/AllProducts";
 import FavoriteProducts from "../components/Product/FavoriteProducts";
 import ProductCategories from "../components/Product/ProductCategories";
 
@@ -8,7 +9,7 @@ const Home = () => {
       <ImageSlider auto />
       <FavoriteProducts />
       <ProductCategories />
-      {/* All products */}
+      <AllProducts />
     </>
   );
 };
