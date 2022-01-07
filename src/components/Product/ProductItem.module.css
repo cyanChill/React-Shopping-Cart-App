@@ -30,7 +30,7 @@
   color: var(--off-grey-darker);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 672px) {
   .product {
     width: 87.5vw;
   }

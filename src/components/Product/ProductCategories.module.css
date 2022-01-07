@@ -72,5 +72,7 @@
 @media (max-width: 980px) {
   .categories .category {
     width: 90vw;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 }

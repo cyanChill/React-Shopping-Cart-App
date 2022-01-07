@@ -2,7 +2,7 @@
 
 :root {
   --nav-height: 5rem;
-  --card-dim: 18rem;
+  --card-dim: clamp(18rem, 30vw, 20vw);
 
   --off-white: #f3f3f3;
   --off-black: #1c1b1b;
