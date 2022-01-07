@@ -6,12 +6,12 @@
 */
 
 import classes from "./ImageSlider.module.css";
-import testImg from "../../assets/images/banner-gallary-1-desktop.png";
+import bannerList from "../../assets/banner-list";
 
 const ImageSlider = (props) => {
   return (
     <div className={classes.gallary}>
-      <img src={testImg} alt="test banner" />
+      <img src={bannerList[0].desktopImg} alt="test banner" />
     </div>
   );
 };
