@@ -1,17 +1,3 @@
-/* 
-  Have an "auto" prop
-
-  Have a prop (maybe "imageNav") to show the dots to go to a specific image
-    - Have 3 types of values:
-       1. "Hidden"
-       2. "Horizontal" // Default
-       3. "Vertical"
-
-  Expect an array of objects
-  [Maybe for the images, use the links instead]
-
-  Have a speed property if we select the "auto" prop
-*/
 import { useState, useEffect, useRef, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +6,14 @@ import Button from "../FormElements/Button";
 import GallaryNavDot from "./GallaryNavDot";
 
 import classes from "./ImageSlider.module.css";
-import bannerList from "../../assets/banner-list";
+
+/* 
+  "images" is an array of objects where the objects are of the form:
+    {
+      id: "...",
+      image: "..."
+    }
+*/
 
 const ImageSlider = (props) => {
   const navigate = useNavigate();
@@ -46,29 +39,32 @@ const ImageSlider = (props) => {
     setCurrIdx((prevIdx) => (prevIdx === 0 ? images.length - 1 : prevIdx - 1));
   }, [images.length]);
 
-  const transitionAnim = useCallback(() => {
-    setShow(true);
-    const autoInterval = slideSpeed || 7500;
-    transitionAnimRef.current = setTimeout(() => {
-      setShow(false);
-    }, autoInterval - 400);
-  }, [slideSpeed]);
-
   useEffect(() => {
     // Component will rerender at each completed timeout
     if (auto) {
-      transitionAnim();
-
+      setShow(true);
       const autoInterval = slideSpeed || 7500;
+
+      transitionAnimRef.current = setTimeout(() => {
+        setShow(false);
+      }, autoInterval - 250);
+
       autoSlideRef.current = setTimeout(() => {
         nextImg();
       }, autoInterval);
     }
 
     return () => {
+      clearTimeout(transitionAnimRef.current);
       clearTimeout(autoSlideRef.current);
     };
-  }, [currIdx, nextImg, slideSpeed, auto, transitionAnim]);
+  }, [currIdx, nextImg, slideSpeed, auto]);
+
+  useEffect(() => {
+    if (!auto) {
+      setShow((prevShow) => !prevShow);
+    }
+  }, [currIdx, auto]);
 
   return (
     <div
@@ -79,7 +75,7 @@ const ImageSlider = (props) => {
       <div className={classes.gallary}>
         <CSSTransition
           in={show}
-          timeout={400}
+          timeout={250}
           classNames={{
             enterActive: classes["fade-enter"],
             enterDone: classes["fade-enter-active"],
@@ -89,13 +85,13 @@ const ImageSlider = (props) => {
           mountOnEnter
           unmountOnExit
         >
-          <img src={bannerList[currIdx].desktopImg} alt="test banner" />
+          <img src={images[currIdx].image} alt={images[currIdx].id} />
         </CSSTransition>
 
         {buyBtn && (
           <CSSTransition
             in={show}
-            timeout={400}
+            timeout={250}
             classNames={{
               enterActive: classes["fade-btn-enter"],
               enterDone: classes["fade-btn-enter-active"],
@@ -107,7 +103,7 @@ const ImageSlider = (props) => {
           >
             <Button
               className={classes["link-btn"]}
-              onClick={() => navigate(`/products/${bannerList[currIdx].id}`)}
+              onClick={() => navigate(`/products/${images[currIdx].id}`)}
             >
               Buy Now
             </Button>
@@ -126,9 +122,12 @@ const ImageSlider = (props) => {
             <GallaryNavDot
               key={prod.id}
               onClick={() => {
-                clearTimeout(transitionAnimRef.current);
-                clearTimeout(autoSlideRef.current);
-                setCurrIdx(idx);
+                if (currIdx !== idx) {
+                  clearTimeout(transitionAnimRef.current);
+                  clearTimeout(autoSlideRef.current);
+                  setShow(false);
+                  setCurrIdx(idx);
+                }
               }}
               active={currIdx === idx}
             />
