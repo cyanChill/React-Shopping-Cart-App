@@ -1,0 +1,22 @@
+.socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-container {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.icon {
+  transition: all 300ms ease-in-out;
+}
+
+.icon img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.icon:hover {
+  transform: translateY(-0.5rem) scale(1.05);
+}

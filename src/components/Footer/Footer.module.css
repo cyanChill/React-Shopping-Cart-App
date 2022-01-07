@@ -1,0 +1,52 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+
+  padding: 2.5rem 2rem;
+
+  background-color: var(--off-white);
+}
+
+.logo {
+  height: 7.5rem;
+}
+
+.logo img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer-section {
+  line-height: 1.6;
+}
+
+.footer-section h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.footer-section a {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.footer-section p {
+  color: var(--off-grey-darker);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.email-service * {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}

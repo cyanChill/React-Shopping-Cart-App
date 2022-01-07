@@ -1,0 +1,15 @@
+.input {
+  width: 100%;
+
+  padding: 1rem;
+
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: transparent;
+}
+
+.block {
+  display: block;
+}
