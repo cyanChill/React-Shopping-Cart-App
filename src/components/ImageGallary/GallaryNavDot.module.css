@@ -1,0 +1,13 @@
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+
+  border: 2px solid var(--off-grey-darker);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.dot.active {
+  border: 2px solid var(--off-black);
+  background-color: var(--off-black);
+}

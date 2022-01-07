@@ -1,8 +1,9 @@
 import classes from "./Button.module.css";
 
 const Button = (props) => {
-  const btnClasses = `${classes.btn} ${props.inverse && classes.inverse}`;
-
+  const btnClasses = `${classes.btn} ${props.className} ${
+    props.inverse && classes.inverse
+  }`;
 
   return (
     <button className={btnClasses} onClick={props.onClick}>

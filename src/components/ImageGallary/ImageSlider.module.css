@@ -1,7 +1,75 @@
+.gallary-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallary-container.vertical {
+  flex-direction: row-reverse;
+}
+
 .gallary {
   width: 100%;
+
+  position: relative;
 }
 
 .gallary img {
   width: 100%;
+}
+
+.link-btn {
+  position: absolute;
+  left: 2rem;
+  bottom: 5rem;
+}
+
+.fade-enter {
+  opacity: 0.5;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.fade-exit {
+  opacity: 0.45;
+  transition: all 400ms;
+}
+
+.fade-exit-active {
+  opacity: 0.45;
+}
+
+.fade-btn-enter {
+  opacity: 0;
+  transform: translateY(101.5%);
+}
+
+.fade-btn-enter-active {
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.fade-btn-exit {
+  opacity: 0;
+  transform: translateY(98.5%);
+  transition: all 400ms;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.gallary-nav {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.25rem;
+}
+
+.gallary-nav.vertical {
+  flex-direction: column;
 }
