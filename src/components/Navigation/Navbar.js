@@ -32,6 +32,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (show) {
+      window.document.body.style.overflowY = "hidden";
+    } else {
+      window.document.body.style.overflowY = "auto";
+    }
+  }, [show]);
+
   return (
     <>
       <Sidebar show={show} onClick={hideSideBar} />
