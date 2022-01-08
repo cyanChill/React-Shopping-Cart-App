@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Sidebar from "./SideBar";
 
@@ -8,6 +8,8 @@ import logo from "../../assets/images/ltt_logo.png";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
+  const location = useLocation();
+  const { pathname } = location;
   const [blurNav, setBlurNav] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -19,18 +21,24 @@ const Navbar = () => {
     the navebar a "active class" (ie: make the background not transparent)
   */
   useEffect(() => {
-    const scrollListener = window.addEventListener("scroll", () => {
-      if (window.scrollY === 0) {
-        setBlurNav(false);
-      } else {
-        setBlurNav(true);
-      }
-    });
+    if (pathname === "/") {
+      const scrollListener = window.addEventListener("scroll", () => {
+        if (window.scrollY === 0) {
+          setBlurNav(false);
+        } else {
+          setBlurNav(true);
+        }
+      });
 
-    return () => {
-      window.removeEventListener("scroll", scrollListener);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("scroll", scrollListener);
+      };
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    setBlurNav(pathname !== "/");
+  }, [pathname]);
 
   useEffect(() => {
     if (show) {

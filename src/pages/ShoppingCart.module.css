@@ -3,6 +3,25 @@
   padding: 0.5rem;
 }
 
+.empty {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.empty p {
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.empty button {
+  margin: 1rem 0.5rem;
+
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
 .page {
   min-height: 100vh;
 

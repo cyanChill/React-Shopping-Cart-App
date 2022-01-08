@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CartContext } from "../context/shopping-ctx";
 import Products from "../assets/product-list";
@@ -9,6 +10,7 @@ import Button from "../components/FormElements/Button";
 import classes from "./ShoppingCart.module.css";
 
 const ShoppingCart = () => {
+  const navigate = useNavigate();
   const { cart, getCartTotal } = useContext(CartContext);
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState();
@@ -28,6 +30,15 @@ const ShoppingCart = () => {
     setCartItems(newCartItems);
     setCartTotal(getCartTotal());
   }, [cart, getCartTotal]);
+
+  if (cartItems.length === 0) {
+    return (
+      <div className={`${classes.page} ${classes.empty}`}>
+        <p>Your Cart is Empty</p>
+        <Button onClick={() => navigate("/")}>Shop Our Products</Button>
+      </div>
+    );
+  }
 
   return (
     <div className={classes.page}>
