@@ -73,20 +73,41 @@ const ImageSlider = (props) => {
       }`}
     >
       <div className={classes.gallary}>
-        <CSSTransition
-          in={show}
-          timeout={250}
-          classNames={{
-            enterActive: classes["fade-enter"],
-            enterDone: classes["fade-enter-active"],
-            exitActive: classes["fade-exit"],
-            exitDone: classes["fade-exit-active"],
-          }}
-          mountOnEnter
-          unmountOnExit
-        >
-          <img src={images[currIdx].image} alt={images[currIdx].id} />
-        </CSSTransition>
+        <div className={classes["img-container"]}>
+          <CSSTransition
+            in={show}
+            timeout={250}
+            classNames={{
+              enterActive: classes["fade-enter"],
+              enterDone: classes["fade-enter-active"],
+              exitActive: classes["fade-exit"],
+              exitDone: classes["fade-exit-active"],
+            }}
+            mountOnEnter
+            unmountOnExit
+          >
+            <img src={images[currIdx].image} alt={images[currIdx].id} />
+          </CSSTransition>
+
+          <div
+            className={classes.prev}
+            onClick={() => {
+              clearTimeout(transitionAnimRef.current);
+              clearTimeout(autoSlideRef.current);
+              setShow(false);
+              prevImg();
+            }}
+          />
+          <div
+            className={classes.next}
+            onClick={() => {
+              clearTimeout(transitionAnimRef.current);
+              clearTimeout(autoSlideRef.current);
+              setShow(false);
+              nextImg();
+            }}
+          />
+        </div>
 
         {buyBtn && (
           <CSSTransition
