@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { CartContext } from "../context/shopping-ctx";
@@ -14,6 +14,9 @@ const Product = () => {
   const { dispatch } = useContext(CartContext);
   const { pid } = useParams();
   const [product, setProduct] = useState(Products.find((p) => p.id === pid));
+  const [gallBtns, setGallBtns] = useState(
+    document.body.clientWidth > 900 ? "vertical" : ""
+  );
 
   const addItemHandler = () => {
     dispatch({
@@ -25,6 +28,22 @@ const Product = () => {
     navigate("/cart");
   };
 
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      if (gallBtns === "vertical" && entries[0].target.clientWidth < 900) {
+        setGallBtns("");
+      } else if (gallBtns === "" && entries[0].target.clientWidth > 900) {
+        setGallBtns("vertical");
+      }
+    });
+
+    resizeObserver.observe(document.body);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [gallBtns]);
+
   if (!product) {
     return <div>Did not find product</div>;
   }
@@ -32,7 +51,7 @@ const Product = () => {
   return (
     <div className={classes.page}>
       <div className={classes.slider}>
-        <ImageSlider images={product.images} gallaryCtrl="vertical" />
+        <ImageSlider images={product.images} gallaryCtrl={gallBtns} />
       </div>
 
       <div>

@@ -1,5 +1,5 @@
 .page {
-  height: 100vh;
+  min-height: 100vh;
 
   display: flex;
   gap: 1rem;
@@ -30,4 +30,20 @@
 .price {
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .page > div {
+    width: 100%;
+
+    padding: 0.5rem;
+  }
+
+  .slider {
+    height: clamp(30rem, 70vw, 50rem);
+  }
 }
