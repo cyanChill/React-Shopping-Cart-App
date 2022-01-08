@@ -8,14 +8,14 @@ const ProductItem = (props) => {
   return (
     <div className={classes.product}>
       <Card className={classes["product-card"]}>
-        <Link to={`./products/${props.id}`}>
+        <Link to={`/products/${props.id}`}>
           <img src={props.image} alt={props.name} />
         </Link>
       </Card>
 
       <div className={classes.description}>
         <h3>
-          <Link to={`./products/${props.id}`}>{props.name}</Link>
+          <Link to={`/products/${props.id}`}>{props.name}</Link>
         </h3>
 
         <p>${props.price} USD</p>
