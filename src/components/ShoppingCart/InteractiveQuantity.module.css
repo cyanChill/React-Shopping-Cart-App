@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+
+  padding: 0.25rem;
+}
+
+.container button {
+  height: 2rem;
+  width: 2rem;
+
+  font-size: 1.15rem;
+
+  border: 0;
+  background-color: var(--off-grey);
+  color: var(--off-black);
+  cursor: pointer;
+}
+
+.container input {
+  height: 2rem;
+  width: 4rem;
+
+  font-size: 1.15rem;
+
+  text-align: center;
+  background-color: transparent;
+  color: var(--off-grey-darker);
+  border: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.container input::-webkit-outer-spin-button,
+.container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.container input[type="number"] {
+  -moz-appearance: textfield;
+}

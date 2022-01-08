@@ -3,6 +3,7 @@
 :root {
   --nav-height: 5rem;
   --card-dim: clamp(17rem, 30vw, 20vw);
+  --cart-width: clamp(17rem, 75vw, 65rem);
 
   --off-white: #f3f3f3;
   --off-black: #1c1b1b;
