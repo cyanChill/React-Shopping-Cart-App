@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { CartContext } from "../../context/shopping-ctx";
 
@@ -39,7 +40,9 @@ const CartItem = (props) => {
 
       <div className={classes.detail}>
         <div className={classes.row}>
-          <p className={classes.title}>{name}</p>
+          <Link to={`/products/${id}`}>
+            <p className={classes.title}>{name}</p>
+          </Link>
           <p className={classes.price}>${price} USD</p>
         </div>
 
