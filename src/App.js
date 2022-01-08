@@ -5,31 +5,35 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Product from "./pages/Product";
+import ErrorPage from "./pages/ErrorPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route
-          path="/products"
-          element={<Navigate replace to="/collections" />}
-        />
-        <Route path="/products/:pid" element={<Product />} />
+          <Route
+            path="/products"
+            element={<Navigate replace to="/collections" />}
+          />
+          <Route path="/products/:pid" element={<Product />} />
 
-        <Route path="/collections" element={<p>Collections</p>} />
-        <Route path="/collections/:cid" element={<p>Specific Collection</p>} />
+          <Route path="/collections" element={<p>Collections</p>} />
+          <Route
+            path="/collections/:cid"
+            element={<p>Specific Collection</p>}
+          />
 
-        <Route path="/cart" element={<ShoppingCart />} />
+          <Route path="/cart" element={<ShoppingCart />} />
 
-        <Route
-          path="*"
-          element={<p>404 The page you were looking for cannot be found.</p>}
-        />
-      </Routes>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </ScrollToTop>
 
       <Footer />
     </BrowserRouter>
