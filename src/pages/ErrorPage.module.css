@@ -1,0 +1,21 @@
+.page {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: calc(2rem + var(--nav-height));
+}
+
+.page p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+
+  padding: 0.5rem;
+}
+
+.page button {
+  margin: 2rem;
+}
