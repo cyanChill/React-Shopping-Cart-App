@@ -7,7 +7,13 @@ import Products from "../../assets/product-list";
 
 const AllProducts = () => {
   const navigate = useNavigate();
-  const selectedProducts = Products.slice(0, 8);
+  const selectedProducts = Products.slice(0, 8).map((p) => ({
+    id: p.id,
+    name: p.name,
+    price: p.price,
+    image: p.images[0] ? p.images[0].image : "",
+    favorite: p.favorite,
+  }));
 
   const actions = (
     <Button onClick={() => navigate("/collections/all")}>
