@@ -5,6 +5,7 @@ import { CartContext } from "../context/shopping-ctx";
 
 import ImageSlider from "../components/ImageGallary/ImageSlider";
 import Button from "../components/FormElements/Button";
+import ErrorPage from "./ErrorPage";
 
 import classes from "./Product.module.css";
 import { ProductsList } from "../assets/product-list";
@@ -47,7 +48,7 @@ const Product = () => {
   }, [gallBtns]);
 
   if (!product) {
-    return <div>Did not find product</div>;
+    return <ErrorPage />;
   }
 
   return (

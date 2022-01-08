@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 
-import ErrorPage from "../../pages/ErrorPage";
-import LoadingSpinner from "../UI/LoadingSpiner";
-import ProductItem from "../Product/ProductItem";
+import ErrorPage from "./ErrorPage";
+import LoadingSpinner from "../components/UI/LoadingSpiner";
+import ProductItem from "../components/Product/ProductItem";
 
 import classes from "./Collection.module.css";
-import { CategoryList, ProductsList } from "../../assets/product-list";
+import { CategoryList, ProductsList } from "../assets/product-list";
 
 const Collection = (props) => {
   const { cid } = useParams();

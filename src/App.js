@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Product from "./pages/Product";
-import Collection from "./components/Collection/Collection";
+import Collection from "./pages/Collection";
 import Collections from "./pages/Collections";
 import ErrorPage from "./pages/ErrorPage";
 import ScrollToTop from "./components/ScrollToTop";
