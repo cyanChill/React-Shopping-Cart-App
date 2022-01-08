@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+
+import { CartContext } from "../../context/shopping-ctx";
 
 import Sidebar from "./SideBar";
 
@@ -10,8 +12,10 @@ import classes from "./Navbar.module.css";
 const Navbar = () => {
   const location = useLocation();
   const { pathname } = location;
+  const { cart, getNumItems } = useContext(CartContext);
   const [blurNav, setBlurNav] = useState(false);
   const [show, setShow] = useState(false);
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   const showSideBar = () => setShow(true);
   const hideSideBar = () => setShow(false);
@@ -36,6 +40,9 @@ const Navbar = () => {
     }
   }, [pathname]);
 
+  /* 
+    Blur navbar (give white background) by default if not on the home page
+  */
   useEffect(() => {
     setBlurNav(pathname !== "/");
   }, [pathname]);
@@ -48,6 +55,11 @@ const Navbar = () => {
     }
   }, [show]);
 
+  /* Update the number next to the shopping cart*/
+  useEffect(() => {
+    setCartQuantity(getNumItems());
+  }, [cart, getNumItems]);
+
   return (
     <>
       <Sidebar show={show} onClick={hideSideBar} />
@@ -59,9 +71,12 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={classes[`nav-actions`]}>
-          <Link to="/cart">
-            <FaShoppingCart />
-          </Link>
+          <div className={classes.cart}>
+            <Link to="/cart">
+              <FaShoppingCart />
+            </Link>
+            {cartQuantity > 0 ? <span>{cartQuantity}</span> : null}
+          </div>
           <FaBars onClick={showSideBar} />
         </div>
       </div>

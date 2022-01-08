@@ -19,7 +19,12 @@ const CartItem = (props) => {
   };
 
   const handleSet = (amount) => {
-    dispatch({ type: "SET", itemId: id, price, quantity: amount });
+    dispatch({
+      type: "SET",
+      itemId: id,
+      price,
+      quantity: isNaN(amount) ? amount : Number(amount),
+    });
   };
 
   const handleRemove = (amount) => {

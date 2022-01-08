@@ -4,6 +4,7 @@ const CartContext = React.createContext({
   cart: [],
   dispatch: (payload) => {},
   getCartTotal: () => {},
+  getNumItems: () => {},
 });
 
 const cartReducer = (cartState, action) => {
@@ -57,17 +58,28 @@ const CartProvider = (props) => {
   const [cart, dispatch] = useReducer(cartReducer, []);
 
   const getCartTotal = useCallback(() => {
-    return cart
-      .reduce((total, curr) => {
-        return total + curr.price * curr.quantity;
+    return Number(
+      cart
+        .reduce((total, curr) => {
+          return total + curr.price * curr.quantity;
+        }, 0)
+        .toFixed(2)
+    );
+  }, [cart]);
+
+  const getNumItems = useCallback(() => {
+    return Number(
+      cart.reduce((total, curr) => {
+        return total + curr.quantity;
       }, 0)
-      .toFixed(2);
+    );
   }, [cart]);
 
   const cartValues = {
     cart: cart,
     dispatch,
     getCartTotal,
+    getNumItems,
   };
 
   return (

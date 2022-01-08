@@ -39,7 +39,7 @@
 
 .nav-actions {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: space-between;
 
   padding: 0 1rem;
@@ -47,4 +47,24 @@
 
 .nav-actions *:hover {
   cursor: pointer;
+}
+
+.nav-actions .cart {
+  position: relative;
+}
+
+.nav-actions .cart span {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 0.15rem 0.5rem;
+
+  font-size: 0.7rem;
+
+  transform: translate(80%, -0.5rem);
+
+  border-radius: 100rem;
+  color: white;
+  background-color: var(--orange);
 }
