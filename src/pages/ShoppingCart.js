@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CartContext } from "../context/shopping-ctx";
-import Products from "../assets/product-list";
+import { ProductsList } from "../assets/product-list";
 
 import CartItem from "../components/ShoppingCart/CartItem";
 import Button from "../components/FormElements/Button";
@@ -17,7 +17,7 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     const newCartItems = cart.map((item) => {
-      const prod = Products.find((p) => p.id === item.id);
+      const prod = ProductsList.find((p) => p.id === item.id);
       return {
         id: item.id,
         name: prod.name,

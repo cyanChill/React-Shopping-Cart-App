@@ -4,10 +4,8 @@
   display: flex;
   gap: 1rem;
 
+  padding: 1rem;
   padding-top: calc(2rem + var(--nav-height));
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
 }
 
 .page > div {

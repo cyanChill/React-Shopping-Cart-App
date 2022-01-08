@@ -7,13 +7,15 @@ import ImageSlider from "../components/ImageGallary/ImageSlider";
 import Button from "../components/FormElements/Button";
 
 import classes from "./Product.module.css";
-import Products from "../assets/product-list";
+import { ProductsList } from "../assets/product-list";
 
 const Product = () => {
   const navigate = useNavigate();
   const { dispatch } = useContext(CartContext);
   const { pid } = useParams();
-  const [product, setProduct] = useState(Products.find((p) => p.id === pid));
+  const [product, setProduct] = useState(
+    ProductsList.find((p) => p.id === pid)
+  );
   const [gallBtns, setGallBtns] = useState(
     document.body.clientWidth > 900 ? "vertical" : ""
   );

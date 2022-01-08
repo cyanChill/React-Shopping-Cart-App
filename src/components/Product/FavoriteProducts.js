@@ -1,9 +1,9 @@
 import ProductsSection from "./ProductsSection";
 
-import Products from "../../assets/product-list";
+import { ProductsList } from "../../assets/product-list";
 
 const FavoriteProducts = () => {
-  const favProducts = Products.filter((p) => p.favorite).map((p) => ({
+  const favProducts = ProductsList.filter((p) => p.favorite).map((p) => ({
     id: p.id,
     name: p.name,
     price: p.price,

@@ -4,8 +4,7 @@ const mainNavLinks = [
   <SlideAnimLink to="/" label="HOME" key="home" />,
   <SlideAnimLink to="/collections/all" label="ALL PRODUCTS" key="all" />,
   <SlideAnimLink to="/collections/clothing" label="CLOTHING" key="clothing" />,
-  <SlideAnimLink to="/collections/gear" label="GEAR" key="gear" />,
-  <SlideAnimLink to="/collections/gift-cards" label="GIFT CARDS" key="card" />,
+  <SlideAnimLink to="/collections/accessories" label="GEAR" key="gear" />,
 ];
 
 const legalLinks = [

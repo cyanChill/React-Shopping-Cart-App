@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import ProductsSection from "./ProductsSection";
 import Button from "../FormElements/Button";
 
-import Products from "../../assets/product-list";
+import { ProductsList } from "../../assets/product-list";
 
 const AllProducts = () => {
   const navigate = useNavigate();
-  const selectedProducts = Products.slice(0, 8).map((p) => ({
+  const selectedProducts = ProductsList.slice(0, 8).map((p) => ({
     id: p.id,
     name: p.name,
     price: p.price,

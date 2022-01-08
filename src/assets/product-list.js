@@ -3,12 +3,19 @@
     1. clothing
     2. gamer-upsell
     3. accessories
-    4. clothing
 */
 
 import classes from "./product-list.module.css";
 
-const Products = [
+const CategoryList = [
+  "all",
+  "favorites",
+  "clothing",
+  "gamer-upsell",
+  "accessories",
+];
+
+const ProductsList = [
   {
     id: "indoor-hoodie",
     name: "Indoor Hoodie",
@@ -189,4 +196,4 @@ const Products = [
   },
 ];
 
-export default Products;
+export { CategoryList, ProductsList };

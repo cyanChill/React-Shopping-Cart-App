@@ -16,7 +16,7 @@ const ProductCategories = () => {
         </Card>
       </Link>
 
-      <Link to="/collections/gear">
+      <Link to="/collections/accessories">
         <Card className={classes.category}>
           <h3>Gear</h3>
           <img src={categoryGear} alt="Gear" />

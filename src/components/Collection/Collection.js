@@ -36,8 +36,6 @@ const Collection = (props) => {
     return <ErrorPage />;
   }
 
-  console.log(products);
-
   return (
     <div className={classes.page}>
       <h1>{cid}</h1>
