@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import ErrorPage from "./ErrorPage";
 import LoadingSpinner from "../components/UI/LoadingSpiner";

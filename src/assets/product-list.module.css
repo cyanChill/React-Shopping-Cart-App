@@ -4,7 +4,7 @@
   line-height: 1.55;
 }
 
-.text span {
+.text > span {
   display: block;
   padding: 0.5rem 0rem;
 }
@@ -13,10 +13,14 @@
   line-height: normal;
 }
 
-.list span {
+.list > span {
   padding: 0;
 }
 
 .bold {
   font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
 }
