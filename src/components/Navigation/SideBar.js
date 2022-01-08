@@ -40,7 +40,7 @@ const Sidebar = (props) => {
 
           <div className={classes["secondary-links"]}>
             {legalLinks}
-            <SlideAnimLink to="/" label="Account" muted />
+            <SlideAnimLink to="/account" label="Account" muted />
           </div>
         </aside>
       </CSSTransition>

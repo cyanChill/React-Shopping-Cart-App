@@ -1,0 +1,51 @@
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1rem;
+  padding-top: calc(2rem + var(--nav-height));
+}
+
+.wrapper {
+  width: 50rem;
+
+  padding: 1rem;
+
+  line-height: 1.7;
+}
+
+.wrapper > h1 {
+  padding: 1rem 1rem 2rem 1rem;
+
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wrapper > h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.wrapper > p {
+  font-size: 1.05rem;
+
+  padding-bottom: 1rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}

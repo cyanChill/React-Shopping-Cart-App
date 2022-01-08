@@ -1,0 +1,40 @@
+.wrapper {
+  width: 25rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+  padding-top: calc(2rem + var(--nav-height));
+}
+
+.page h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.page p {
+  font-size: 1.15rem;
+}
+
+.btn-override {
+  width: 100%;
+}
+
+.fake-link:hover {
+  cursor: pointer;
+  color: var(--off-black);
+}
