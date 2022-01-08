@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import classes from "./InteractiveQuantity.module.css";
 
@@ -7,8 +7,16 @@ const InteractiveQuantity = (props) => {
   const [input, setInput] = useState(quantity);
 
   const handleChange = () => {
-    console.log(input);
+    if (isNaN(input) || !input) {
+      setInput(quantity);
+    } else {
+      onSet(input);
+    }
   };
+
+  useEffect(() => {
+    setInput(quantity);
+  }, [quantity]);
 
   return (
     <div className={classes.container}>
