@@ -6,9 +6,16 @@ import ProductCategories from "../components/Product/ProductCategories";
 import bannerList from "../assets/banner-list";
 
 const Home = () => {
+  const bannerProducts = bannerList.map((prod) => {
+    return {
+      id: prod.id,
+      image: prod.desktopImg,
+    };
+  });
+
   return (
     <>
-      <ImageSlider images={bannerList} auto buyBtn gallaryCtrl="hidden" />
+      <ImageSlider images={bannerProducts} auto buyBtn gallaryCtrl="hidden" />
       <FavoriteProducts />
       <ProductCategories />
       <AllProducts />

@@ -2,6 +2,8 @@
   Probably should pre-format the product info and description fields as JSX instead of just strings
 */
 
+import classes from "./product-list.module.css";
+
 const Products = [
   {
     id: "indoor-hoodie",
@@ -33,9 +35,17 @@ const Products = [
     ],
     favorite: true,
     type: ["Clothing"],
-    description: [
-      "This hoodie is designed to maintain maximum comfort while lounging around the house or gaming. With a smooth finish on the cotton/poly/spandex blend, both sides of the fabric should feel soft and cool.",
-    ],
+    description: (
+      <div>
+        <p className={classes.title}>Indoor Hoodie</p>
+        <p className={classes.text}>
+          This hoodie is designed to maintain maximum comfort while lounging
+          around the house or gaming. With a smooth finish on the
+          cotton/poly/spandex blend, both sides of the fabric should feel soft
+          and cool.
+        </p>
+      </div>
+    ),
   },
   {
     id: "case-t-shirt",
