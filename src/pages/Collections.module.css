@@ -1,0 +1,72 @@
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1rem;
+  padding-top: calc(2rem + var(--nav-height));
+}
+
+.page > h1 {
+  padding: 1rem 1rem 2rem 1rem;
+
+  font-size: 2.75rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.collections {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.widget {
+  height: 30vw;
+  width: 30vw;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.widget img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+  background-color: rgba(156, 152, 152, 0.5);
+  transition: all 2000ms ease-in-out;
+}
+
+.widget:hover img {
+  transform: scale(125%);
+}
+
+.widget .overlay {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+}
+
+.overlay h3 {
+  padding: 1rem 0;
+
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 3px;
+
+  color: white;
+}
+
+.btn-hover:hover {
+  color: transparent;
+  transition: all 500ms ease-in-out;
+}

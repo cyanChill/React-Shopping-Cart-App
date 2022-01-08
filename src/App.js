@@ -5,6 +5,8 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Product from "./pages/Product";
+import Collection from "./components/Collection/Collection";
+import Collections from "./pages/Collections";
 import ErrorPage from "./pages/ErrorPage";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -23,11 +25,8 @@ const App = () => {
           />
           <Route path="/products/:pid" element={<Product />} />
 
-          <Route path="/collections" element={<p>Collections</p>} />
-          <Route
-            path="/collections/:cid"
-            element={<p>Specific Collection</p>}
-          />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections/:cid" element={<Collection />} />
 
           <Route path="/cart" element={<ShoppingCart />} />
 
