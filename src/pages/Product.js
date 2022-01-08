@@ -32,7 +32,7 @@ const Product = () => {
     const resizeObserver = new ResizeObserver((entries) => {
       if (gallBtns === "vertical" && entries[0].target.clientWidth < 900) {
         setGallBtns("");
-      } else if (gallBtns === "" && entries[0].target.clientWidth > 900) {
+      } else if (gallBtns === "" && entries[0].target.clientWidth >= 900) {
         setGallBtns("vertical");
       }
     });
