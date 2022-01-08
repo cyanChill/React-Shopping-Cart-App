@@ -1,8 +1,10 @@
 import classes from "./Button.module.css";
 
 const Button = (props) => {
-  const btnClasses = `${classes.btn} ${props.className} ${
-    props.inverse && classes.inverse
+  const btnClasses = `${classes["btn-colors"]} ${classes.btn} ${
+    props.className
+  } ${props.inverse && classes.inverse} ${
+    props.variant && classes[props.variant]
   }`;
 
   return (
