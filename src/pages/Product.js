@@ -55,6 +55,7 @@ const Product = () => {
       </div>
 
       <div>
+        <p className={classes.title}>{product.name}</p>
         {product.description}
 
         <div className={classes["cart-logic"]}>

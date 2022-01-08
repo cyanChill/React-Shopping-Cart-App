@@ -1,13 +1,22 @@
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  line-height: 1.7;
-}
-
 .text {
   font-size: 0.9rem;
   text-transform: uppercase;
   line-height: 1.55;
+}
+
+.text span {
+  display: block;
+  padding: 0.5rem 0rem;
+}
+
+.text {
+  line-height: normal;
+}
+
+.list span {
+  padding: 0;
+}
+
+.bold {
+  font-weight: 700;
 }
