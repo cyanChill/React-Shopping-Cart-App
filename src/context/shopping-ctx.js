@@ -1,4 +1,7 @@
-import React, { useReducer, useCallback } from "react";
+import React, { useReducer, useCallback, useContext, useEffect } from "react";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
+import { FirebaseContext } from "./firebase-ctx";
 
 const CartContext = React.createContext({
   cart: [],
@@ -49,13 +52,19 @@ const cartReducer = (cartState, action) => {
         return cartState;
       }
     }
+  } else if (type === "INITIALIZE") {
+    return action.cart;
   } else {
     return cartState;
   }
 };
 
 const CartProvider = (props) => {
-  const [cart, dispatch] = useReducer(cartReducer, []);
+  const { isLoggedIn, user, firestore } = useContext(FirebaseContext);
+  const [cart, dispatch] = useReducer(
+    cartReducer,
+    JSON.parse(localStorage.getItem("shopping-cart")) || []
+  );
 
   const getCartTotal = useCallback(() => {
     return Number(
@@ -75,11 +84,72 @@ const CartProvider = (props) => {
     );
   }, [cart]);
 
+  /* 
+    Internal functions used to repopulate cart data on login/logout 
+    with database/local storage data 
+  */
+  const populateCart = useCallback((savedCart) => {
+    dispatch({
+      type: "INITIALIZE",
+      cart: savedCart,
+    });
+  }, []);
+
+  /* Fetching Shopping Cart */
+  const FetchShoppingCart = useCallback(async () => {
+    if (isLoggedIn) {
+      const cartsRef = firestore.collection("shopping-carts").doc(user.uid);
+
+      const cartData = await new Promise((resolve, reject) => {
+        cartsRef.get().then((doc) => {
+          if (doc.exists) {
+            resolve(doc.data());
+          } else {
+            resolve({ cart: [] });
+          }
+        });
+      });
+
+      populateCart(cartData.cart);
+    }
+  }, [populateCart, isLoggedIn, firestore]);
+
+  const reloadCartData = useCallback(() => {
+    if (isLoggedIn) {
+      FetchShoppingCart();
+    } else {
+      const localCart = JSON.parse(localStorage.getItem("shopping-cart")) || [];
+      populateCart(localCart);
+    }
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    reloadCartData();
+  }, [reloadCartData]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      console.log("cart updated");
+      const cartsRef = firestore.collection("shopping-carts").doc(user.uid);
+
+      cartsRef
+        .set({ cart: cart })
+        .then(() => {
+          console.log("Document successfully written!");
+        })
+        .catch((err) => console.log(`Error writing document: ${err}`));
+    } else {
+      console.log("not logged in");
+      localStorage.setItem("shopping-cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
   const cartValues = {
     cart: cart,
     dispatch,
     getCartTotal,
     getNumItems,
+    populateCart,
   };
 
   return (
