@@ -4,10 +4,13 @@ import App from "./App";
 import "./index.css";
 
 import CartProvider from "./context/shopping-ctx";
+import FirebaseContextProvider from "./context/firebase-ctx";
 
 ReactDOM.render(
-  <CartProvider>
-    <App />
-  </CartProvider>,
+  <FirebaseContextProvider>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </FirebaseContextProvider>,
   document.getElementById("root")
 );

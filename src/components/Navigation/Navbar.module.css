@@ -39,7 +39,7 @@
 
 .nav-actions {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
   justify-content: space-between;
 
   padding: 0 1rem;

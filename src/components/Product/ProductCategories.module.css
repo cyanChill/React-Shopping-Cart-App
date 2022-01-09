@@ -12,11 +12,6 @@
 }
 
 .category {
-  min-height: 25rem;
-  height: 30vw;
-  min-width: 20rem;
-  width: 27.5vw;
-
   position: relative;
 }
 
@@ -27,7 +22,7 @@
 
 .category h3 {
   text-transform: uppercase;
-  font-size: clamp(2.75rem, 3vw, 4rem);
+  font-size: clamp(2rem, 3vw, 4rem);
   font-weight: 700;
 }
 
@@ -52,6 +47,12 @@
 }
 
 @media (max-width: 1668px) {
+  .category {
+    min-height: 25rem;
+    height: 30vw;
+    width: 27.5vw;
+  }
+
   .category img {
     position: absolute;
     bottom: 1rem;
@@ -69,7 +70,9 @@
   .category {
     min-height: 17.5rem;
     height: 35vw;
+    min-width: 15rem;
     width: 90vw;
+
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
   }

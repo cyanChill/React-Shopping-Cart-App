@@ -2,6 +2,13 @@
   position: relative;
 }
 
+.overlay.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .spinner::before {
   content: "";
 

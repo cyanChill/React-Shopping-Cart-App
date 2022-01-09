@@ -2,6 +2,7 @@
   width: var(--cart-width);
 
   display: flex;
+  gap: 0.5rem;
 
   padding: 1rem;
 
@@ -82,5 +83,11 @@
   .price {
     font-size: 1.35rem;
     font-weight: normal;
+  }
+}
+
+@media (max-width: 450px) {
+  .image {
+    display: none;
   }
 }
