@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
@@ -20,32 +20,33 @@ const Navbar = () => {
   const showSideBar = () => setShow(true);
   const hideSideBar = () => setShow(false);
 
+  const scrollListenerHandler = useCallback(() => {
+    if (window.scrollY === 0) {
+      setBlurNav(false);
+    } else {
+      setBlurNav(true);
+    }
+  }, []);
+
   /*
     Need check to see if we scrolled on the page; if we have, need to give
     the navebar a "active class" (ie: make the background not transparent)
-  */
-  useEffect(() => {
-    if (pathname === "/") {
-      const scrollListener = window.addEventListener("scroll", () => {
-        if (window.scrollY === 0) {
-          setBlurNav(false);
-        } else {
-          setBlurNav(true);
-        }
-      });
 
-      return () => {
-        window.removeEventListener("scroll", scrollListener);
-      };
-    }
-  }, [pathname]);
-
-  /* 
     Blur navbar (give white background) by default if not on the home page
   */
   useEffect(() => {
-    setBlurNav(pathname !== "/");
-  }, [pathname]);
+    if (pathname === "/") {
+      setBlurNav(false);
+      window.addEventListener("scroll", scrollListenerHandler);
+    } else {
+      window.removeEventListener("scroll", scrollListenerHandler);
+      setBlurNav(true);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", scrollListenerHandler);
+    };
+  }, [pathname, scrollListenerHandler]);
 
   useEffect(() => {
     if (show) {
