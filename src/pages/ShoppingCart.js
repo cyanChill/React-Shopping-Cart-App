@@ -6,12 +6,13 @@ import { ProductsList } from "../assets/product-list";
 
 import CartItem from "../components/ShoppingCart/CartItem";
 import Button from "../components/FormElements/Button";
+import LoadingSpinner from "../components/UI/LoadingSpiner";
 
 import classes from "./ShoppingCart.module.css";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
-  const { cart, getCartTotal } = useContext(CartContext);
+  const { cart, getCartTotal, isLoading } = useContext(CartContext);
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState();
 
@@ -34,6 +35,7 @@ const ShoppingCart = () => {
   if (cartItems.length === 0) {
     return (
       <div className={`${classes.page} ${classes.empty}`}>
+        {isLoading && <LoadingSpinner overlay />}
         <p>Your Cart is Empty</p>
         <Button onClick={() => navigate("/")}>Shop Our Products</Button>
       </div>
@@ -43,6 +45,7 @@ const ShoppingCart = () => {
   return (
     <div className={classes.page}>
       <div className={classes.wrapper}>
+        {isLoading && <LoadingSpinner overlay />}
         <h1>Your Cart</h1>
 
         <div className={classes.cartItems}>

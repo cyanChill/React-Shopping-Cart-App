@@ -21,7 +21,12 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 /* Context Stuff */
-const FirebaseContext = React.createContext();
+const FirebaseContext = React.createContext({
+  user: null,
+  isLoggedIn: false,
+  signIn: () => {},
+  signOut: () => {},
+});
 
 const FirebaseContextProvider = (props) => {
   const [user] = useAuthState(auth);

@@ -7,8 +7,6 @@ import classes from "./Account.module.css";
 const Account = () => {
   const { user, isLoggedIn, signIn, signOut } = useContext(FirebaseContext);
 
-  console.log(user);
-
   if (!isLoggedIn) {
     return (
       <div className={classes.page}>
