@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, useCallback } from "react";
-import { FaShoppingCart, FaBars } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { FaShoppingCart, FaBars, FaUserCircle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { CartContext } from "../../context/shopping-ctx";
 
@@ -10,6 +10,7 @@ import logo from "../../assets/images/ltt_logo.png";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
   const { cart, getNumItems } = useContext(CartContext);
@@ -72,6 +73,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={classes[`nav-actions`]}>
+          <FaUserCircle onClick={() => navigate("/account")} />
           <div className={classes.cart}>
             <Link to="/cart">
               <FaShoppingCart />

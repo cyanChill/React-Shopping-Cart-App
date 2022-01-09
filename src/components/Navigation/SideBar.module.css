@@ -25,7 +25,7 @@
 
   padding-top: 4rem;
 
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 600;
   letter-spacing: 4px;
 }
@@ -39,7 +39,7 @@
 
   padding-top: 1rem;
 
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
 }
 
 /* Slide-in Transition Classes */
