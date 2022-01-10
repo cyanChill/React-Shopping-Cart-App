@@ -145,7 +145,7 @@ const CartProvider = (props) => {
         .doc(auth.currentUser.uid);
 
       cartsRef
-        .set({ cart: cart })
+        .set({ cart: cart, uid: auth.currentUser.uid })
         .then(() => {
           console.log("Document successfully written!");
         })
