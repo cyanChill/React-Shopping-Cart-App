@@ -1265,7 +1265,7 @@ const ProductsList = [
       {
         id: 0,
         image:
-          "https://cdn.shopify.com/s/files/1/0058/4538/5314/products/WANSweatPants-2000pxForWeb-28_800x.jpg?v=1641579097",
+          "https://cdn.shopify.com/s/files/1/0058/4538/5314/products/lttstore_WANSweatpants_TransparencyFile_800x.png?v=1641861488",
       },
       {
         id: 1,
