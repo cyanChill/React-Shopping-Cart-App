@@ -29,12 +29,7 @@ const Navbar = () => {
     }
   }, []);
 
-  /*
-    Need check to see if we scrolled on the page; if we have, need to give
-    the navebar a "active class" (ie: make the background not transparent)
-
-    Blur navbar (give white background) by default if not on the home page
-  */
+  /* Blur navbar (give white background) by default if not on the home page */
   useEffect(() => {
     if (pathname === "/") {
       setBlurNav(false);
